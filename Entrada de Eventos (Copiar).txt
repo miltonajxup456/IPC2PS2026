@@ -1,1 +1,0 @@
-REGISTRO_EVENTO(EVT-00000001","25/08/2025","CHARLA","Tecnología Sheika","Auditorio Central",150,75.00);

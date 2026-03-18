@@ -1,0 +1,27 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : Aug 18, 2025, 4:32:25 PM
+    Author     : jose
+*/
+
+h1 {
+    color: pink;
+ }
+
+ .my-class {
+     color: red;
+ }
+ 
+ .h1-special {
+     color: yellow;
+ }
+ 
+ #demo {
+     background: black;
+     color: white;
+     border: #6666ff;
+     border-width: 1px;
+ }

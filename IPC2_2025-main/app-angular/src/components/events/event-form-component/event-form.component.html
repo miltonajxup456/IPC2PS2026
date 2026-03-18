@@ -1,0 +1,80 @@
+@if(operationDone) {
+<div class="alert alert-success d-flex align-items-center">
+    <i class="bi bi-check-circle flex-shrink-0 me-2"></i>
+    <div>
+        Operacion realizada con exito.
+    </div>
+</div>
+}
+<form [formGroup]="newEventForm" (submit)="submit()">
+
+    <div class="row g-3">
+
+        <div class="col-12">
+           @if(!isEditMode) {
+            <div class="form-group">
+                <label for="code" class="form-label">Codigo:</label>
+                <input type="text" class="form-control" id="code" name="code" formControlName="code"
+                    [class.is-invalid]="newEventForm.controls['code'].dirty && newEventForm.controls['code'].invalid">
+                @if (newEventForm.controls['code'].invalid && newEventForm.controls['code'].touched) {
+                <div class="invalid-feedback">
+                    <div>
+                        Por favor ingrese un codigo de evento valido
+                    </div>
+                </div>
+                }
+            </div>
+        } @else {
+            <div class="form-group">
+                <label for="codigo" class="form-label">Codigo:</label>
+                <label class="form-control">{{eventToUpdate.code}}</label>
+                <input type="hidden" name="codigo" [value]="eventToUpdate.code" />
+            </div>
+        }
+        </div>
+        <div class="col-12">
+            <div class="form-group">
+                <label for="name" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" id="name" name="name" formControlName="name">
+                @if (newEventForm.controls['name'].invalid && newEventForm.controls['name'].dirty) {
+                <div class="invalid-feedback">
+                    <div>
+                        Se debe ingresar un nombre con 100 caracteres como maximo
+                    </div>
+                </div>
+                }
+            </div>
+
+        </div>
+
+        <div class="col-6">
+            <label for="eventType" class="form-label">Tipo:</label>
+            <select id="eventType" name="eventType" class="form-control" formControlName="eventType">
+
+                <option *ngFor="let option of eventTypeEnums | keyvalue" [value]="option.key">
+                    {{ option.value }}
+                </option>
+            </select>
+        </div>
+
+        <div class="col-6">
+            <label for="limit" class="form-label">Limite:</label>
+            <input type="number" class="form-control" id="limit" name="limit" formControlName="limit">
+        </div>
+
+        <div class="col-6">
+            <label for="startDate" class="form-label">Fecha de inicio:</label>
+            <input type="date" class="form-control" id="startDate" name="startDate" formControlName="startDate">
+        </div>
+
+        <div class="col-6">
+            <label for="price" class="form-label">Precio:</label>
+            <input type="number" class="form-control" id="price" name="price" formControlName="price">
+        </div>
+    </div>
+    <hr class="my-4">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-secondary me-md-2" type="button" (click)="reset()">Limpiar</button>
+        <button class="btn btn-primary" [disabled]="newEventForm.invalid">Guardar</button>
+    </div>
+</form>

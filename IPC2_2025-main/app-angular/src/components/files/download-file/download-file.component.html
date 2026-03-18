@@ -1,0 +1,9 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{infoFile.fileName}}</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">{{infoFile.filePath}}</h6>
+        <h6 class="card-subtitle mb-2 text-body-secondary">{{infoFile.fileContentType}}</h6>
+        <a href="{{getDownloadFileURL()}}" class="card-link">Descargar</a>
+        <img [src]="getDownloadFileURL()" />
+    </div>
+</div>

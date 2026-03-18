@@ -1,0 +1,24 @@
+<div class="container text-center">
+    <a routerLink="/events" class="btn btn-primary">
+        <i class="bi bi-arrow-left-square-fill"></i>
+        Ir a listado de eventos
+    </a>
+</div>
+<div class="container">
+    <h1>Modificar evento {{ eventCode }}</h1>
+    <div class="row">
+
+        @if (exists) {
+                <app-event-form [isEditMode]="true" [eventToUpdate]="eventToUpdate"></app-event-form>
+                }
+                @else {
+
+                <div class="alert alert-danger" role="alert">
+                    No se encontro evento con codigo {{eventCode}}
+                </div>
+                }
+
+
+        
+    </div>
+</div>

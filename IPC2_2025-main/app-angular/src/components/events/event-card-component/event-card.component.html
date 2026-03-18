@@ -1,0 +1,22 @@
+<div class="card">
+    <div class="card-header">
+        {{ selectedEvent.code }}
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{ selectedEvent.name }}</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">Tipo de evento: {{ selectedEvent.eventType }}</h6>
+        <h6 class="card-subtitle mb-2 text-body-secondary">Limite: {{ selectedEvent.limit }}</h6>
+        <h6 class="card-subtitle mb-2 text-body-secondary">Fecha: {{ selectedEvent.startDate | date:'MMMM, dd yyyy' }}
+        </h6>
+        <h6 class="card-subtitle mb-2 text-body-secondary">Precio: {{ selectedEvent.price | currency:'Q' }}</h6>
+
+        @if(isAdmin) {
+        <a routerLink="/events/update/{{ selectedEvent.code }}" class="btn btn-primary">Editar evento</a>
+
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
+            title="Delete event {{ selectedEvent.code}}" (click)="deleteAction()">
+            <i class="bi bi-trash"></i>
+        </button>
+        }
+    </div>
+</div>

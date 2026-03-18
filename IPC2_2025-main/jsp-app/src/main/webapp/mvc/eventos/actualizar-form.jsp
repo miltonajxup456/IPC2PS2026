@@ -1,0 +1,76 @@
+<%-- 
+    Document   : crear
+    Created on : Aug 26, 2025, 4:47:43 PM
+    Author     : jose
+--%>
+
+<%@page import="com.jgranados.jsp.app.backend.eventos.TipoEventoEnum"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+        <jsp:include page="/includes/resources.jsp"/>
+    </head>
+    <body>
+        <main>
+            <jsp:include page="/includes/header.jsp"/>
+            <div class="container">
+
+                <div class="row">
+                    <div class="col"> 
+                        <h4 class="mb-3">Editar Evento</h4>
+                        <c:if test="${evento != null}">
+                            <form class="needs-validation" method="POST" action="${pageContext.servletContext.contextPath}/mvc/eventos/actualizar-eventos-servlet"> 
+                                <div class="row g-3"> 
+
+                                    <div class="col-12"> 
+                                        <label for="codigo" class="form-label">Codigo:</label> 
+                                        <label class="form-control" >${evento.codigo}</label>
+                                        <input type="hidden" name="codigo" value="${evento.codigo}"/>
+                                    </div> 
+                                    <div class="col-12"> 
+                                        <label for="nombre" class="form-label">Nombre:</label> 
+                                        <input type="text" class="form-control" id="nombre" name="nombre" required
+                                               value="${evento.nombre}">
+                                    </div> 
+
+                                    <div class="col-md-3">
+                                        <label for="tipo" class="form-label">Tipo:</label>
+                                        <select id="tipo" name="tipo" class="form-control">
+                                            <option value="CONGRESO" ${evento.tipo.equals(TipoEventoEnum.CONGRESO) ? "selected" : ""}>CONGRESO</option>
+                                            <option value="CHARLA" ${evento.tipo.equals(TipoEventoEnum.CHARLA) ? "selected" : ""}>CHARLA</option>
+                                            <option value="TALLER" ${evento.tipo.equals(TipoEventoEnum.TALLER) ? "selected" : ""}>TALLER</option>
+                                            <option value="DEBATE" ${evento.tipo.equals(TipoEventoEnum.DEBATE) ? "selected" : ""}>DEBATE</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-3"> 
+                                        <label for="limite" class="form-label">Limite:</label> 
+                                        <input type="number" class="form-control" id="limite" name="limite" placeholder="" required
+                                               value="${evento.limite}">
+                                    </div> 
+                                </div>
+                                <hr class="my-4">
+                                <button class="w-100 btn btn-primary btn-lg" type="submit">Guardar</button>
+                            </form> 
+                        </c:if>
+                        <c:if test="${evento == null}">
+                            <div class="alert alert-danger d-flex align-items-center">
+                                <i class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"></i>
+                                <div>
+                                    ${error}!!!
+                                </div> 
+                            </div>
+                        </c:if>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <jsp:include page="/includes/footer.jsp"/>
+    </main>
+</body>
+</html>

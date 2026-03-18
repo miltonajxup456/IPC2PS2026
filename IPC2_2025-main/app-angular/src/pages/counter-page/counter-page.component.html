@@ -1,0 +1,12 @@
+<h1>Cantidad de click: {{ counter }}</h1>
+
+<button type="button" (click)="increase()">Aumenta contador</button>
+<button type="button" (click)="reduce()">Reduce contador</button>
+<button type="button" (click)="reset(5)">Reinicia</button>
+
+<hr/>
+<h1>enlace de atributo de etiqueta</h1>
+<button type="button" class="btn btn-primary" (click)="changeStyle('text-primary')">Poner color Azul</button>
+<button type="button" class="btn btn-success" (click)="changeStyle('text-success')">Poner color verde</button>
+<button type="button" class="btn btn-danger" (click)="changeStyle('text-danger')">Poner color rojo</button>
+<p [class]="fontStyle">este es un parrafo de texto que cambia de estilo</p>

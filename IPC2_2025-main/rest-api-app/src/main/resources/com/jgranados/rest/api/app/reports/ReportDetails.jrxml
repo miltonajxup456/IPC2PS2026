@@ -1,0 +1,39 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
+<jasperReport name="ReportDetails" language="java" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="110dc321-7f64-4261-904b-7517d6e34d40">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<query language="sql"><![CDATA[]]></query>
+	<field name="nameDetail" class="java.lang.String"/>
+	<field name="dateDetail" class="java.time.LocalDate"/>
+	<field name="limitDetail" class="java.lang.Integer"/>
+	<columnHeader height="30" splitType="Stretch">
+		<element kind="staticText" uuid="5ca3e95c-f000-4df8-a595-3a7144a82c32" x="0" y="0" width="280" height="30" fontSize="15.0">
+			<text><![CDATA[Nombre]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d5b39a3c-5cef-4f33-926d-710bd3c3891e"/>
+		</element>
+		<element kind="staticText" uuid="c1e8b7cd-a34c-4be0-b223-0310dec504a7" x="280" y="0" width="140" height="30" fontSize="15.0">
+			<text><![CDATA[Fecha]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7686dcb0-3cc6-475d-9c3f-ffde3ef22d48"/>
+		</element>
+		<element kind="staticText" uuid="249ef0bb-e266-482a-a2d6-fd9fa140d82f" x="420" y="0" width="150" height="30" fontSize="15.0">
+			<text><![CDATA[Limite]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8751858c-f9b5-4648-a833-b37fe500d8fa"/>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<element kind="textField" uuid="affba4db-0803-416a-86c4-e143c9aa3926" x="0" y="0" width="280" height="30" fontSize="15.0">
+				<expression><![CDATA[$F{nameDetail}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d5b39a3c-5cef-4f33-926d-710bd3c3891e"/>
+			</element>
+			<element kind="textField" uuid="431b451d-7771-4645-9042-372887f6c507" x="280" y="0" width="140" height="30" fontSize="15.0">
+				<expression><![CDATA[$F{dateDetail}.format( java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy") )
+]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7686dcb0-3cc6-475d-9c3f-ffde3ef22d48"/>
+			</element>
+			<element kind="textField" uuid="b00cc45e-00ca-4dd1-b0b7-f5ef7bb9a122" x="420" y="0" width="150" height="30" fontSize="15.0">
+				<expression><![CDATA[$F{limitDetail}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8751858c-f9b5-4648-a833-b37fe500d8fa"/>
+			</element>
+		</band>
+	</detail>
+</jasperReport>
